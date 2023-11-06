@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load gTTS %}
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/detail.css" %}">
@@ -18,6 +19,7 @@
     <a href="{% url "note-update" note.id %}" class='edit-btn'>Edit</a>
     <a href="{% url "note-delete" note.id %}" class='delete-btn'>Delete</a>
   </div>
+  <audio src="{% say 'en-us' note.content %}" controls></audio>
   <p>{{ note.content }}</p>
 </div>
 {% endblock content %}

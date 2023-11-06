@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
+{% load gTTS %}
+
 
 {% block head %}
 <link rel="stylesheet" href="{% static "css/index.css" %}">
 {% endblock head %}
 
 {% block content %}
-
 <h1>All Notes</h1>
-
 <div class='container'>
   {% for note in note_list %}
     <a href="{% url "note-detail" note.id %}">
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class='card-summary'>
-      </div>
+        </div>
       </div>
     </a>
     {% endfor %}
