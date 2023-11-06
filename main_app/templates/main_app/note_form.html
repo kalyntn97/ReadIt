@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
+{% block head %}
+<link href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="{% static "css/mcdp.css" %}">
+<script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
+</script>
+<link rel="stylesheet" href="{% static "css/form.css" %}">
+<script defer src="{% static "js/form.js" %}"></script>
+{% endblock head %}
 
 {% block content %}
+{% if note %}
+<h1>Edit a Note</h1>
+{% else %}
 <h1>Add a Note</h1>
+{% endif %}
 <form action="" method="post">
   {% csrf_token %}
   <table>

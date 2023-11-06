@@ -10,19 +10,19 @@
 <h1>All Notes</h1>
 
 <div class='container'>
-  {% for note in notes %}
-    <a href="">
+  {% for note in note_list %}
+    <a href="{% url "note-detail" note.id %}">
       <div class='card'>
         <div class'card-header'>
           <h2>{{ note.title }}</h2>
           <div class='date-container'>
             <span class='create'>{{ note.created_at }}</span>
-              {% comment %} {% if note.created_at != note.updated_at %} {% endcomment %}
+              {% if not note.was_not_updated %}
                 <span class='update'>{{ note.updated_at }}</span>
-              {% comment %} {% endif %} {% endcomment %}
-              {% comment %} {% if note.expire_on %} {% endcomment %}
+              {% endif %}
+              {% if note.expire_on %}
                 <span class='expire'>{{ note.expire_on }}</span>
-              {% comment %} {% endif %} {% endcomment %}
+              {% endif %}
           </div>
         </div>
         <div class='card-summary'>

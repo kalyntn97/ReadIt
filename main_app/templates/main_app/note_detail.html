@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+<div class='header'>
+  <h1>{{ note.title }}</h1>
+  <span class='create'>{{ note.created_at }}</span>
+  {% if note.created_at != note.updated_at %}
+    <span class='update'>{{ note.updated_at }}</span>
+  {% endif %}
+  {% if note.expire_on %}
+    <span class='expire'>{{ note.expire_on }}</span>
+  {% endif %}
+</div>
+<div class='content'>
+  <div class='btn-container'>
+    <a href="{% url "note-update" note.id %}" class='edit-btn'>Edit</a>
+    <a href="{% url "note-delete" note.id %}" class='delete-btn'>Delete</a>
+  </div>
+  <p>{{ note.content }}</p>
+</div>
+{% endblock content %}
