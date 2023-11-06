@@ -5,18 +5,20 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
-  
-class NoteList(ListView):
+
+#CBVs
+class NoteList(LoginRequiredMixin, ListView):
   model = Note
 
   def get_queryset(self):
       return Note.objects.filter(user=self.request.user, expire_on__gt=Now()).order_by('-created_at')
   
-class NoteDetail(DetailView):
+class NoteDetail(LoginRequiredMixin, DetailView):
   model = Note
 
-class NoteCreate(CreateView):
+class NoteCreate(LoginRequiredMixin, CreateView):
   model = Note
   fields = ['title', 'content', 'expire_on']
   success_url = '/notes/'
@@ -25,12 +27,11 @@ class NoteCreate(CreateView):
       form.instance.user = self.request.user
       return super().form_valid(form)
   
-
-class NoteUpdate(UpdateView):
+class NoteUpdate(LoginRequiredMixin, UpdateView):
   model = Note
   fields = ['title', 'content', 'expire_on']
 
-class NoteDelete(DeleteView):
+class NoteDelete(LoginRequiredMixin, DeleteView):
   model = Note
   success_url = '/notes/'
 
@@ -38,7 +39,6 @@ class Home(LoginView):
   template_name = 'home.html'
 
 # Create your views here.
-
 def about(request):
   return render(request, 'about.html')
 
