@@ -9,9 +9,6 @@
 <div class='header'>
   <h1>{{ note.title }}</h1>
   <span class='create'>{{ note.created_at }}</span>
-  {% if note.created_at != note.updated_at %}
-    <span class='update'>{{ note.updated_at }}</span>
-  {% endif %}
   {% if note.expire_on %}
     <span class='expire'>{{ note.expire_on }}</span>
   {% endif %}

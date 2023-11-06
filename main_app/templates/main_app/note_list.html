@@ -17,12 +17,9 @@
           <h2>{{ note.title }}</h2>
           <div class='date-container'>
             <span class='create'>{{ note.created_at }}</span>
-              {% if not note.was_not_updated %}
-                <span class='update'>{{ note.updated_at }}</span>
-              {% endif %}
-              {% if note.expire_on %}
-                <span class='expire'>{{ note.expire_on }}</span>
-              {% endif %}
+            {% if note.expire_on %}
+              <span class='expire'>{{ note.expire_on }}</span>
+            {% endif %}
           </div>
         </div>
         <div class='card-summary'>
