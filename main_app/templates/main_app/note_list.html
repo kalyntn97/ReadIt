@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "css/index.css" %}">
+{% endblock head %}
+
+{% block content %}
+
+<h1>All Notes</h1>
+
+<div class='container'>
+  {% for note in notes %}
+    <a href="">
+      <div class='card'>
+        <div class'card-header'>
+          <h2>{{ note.title }}</h2>
+          <div class='date-container'>
+            <span class='create'>{{ note.created_at }}</span>
+              {% comment %} {% if note.created_at != note.updated_at %} {% endcomment %}
+                <span class='update'>{{ note.updated_at }}</span>
+              {% comment %} {% endif %} {% endcomment %}
+              {% comment %} {% if note.expire_on %} {% endcomment %}
+                <span class='expire'>{{ note.expire_on }}</span>
+              {% comment %} {% endif %} {% endcomment %}
+          </div>
+        </div>
+        <div class='card-summary'>
+      </div>
+      </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock content %}
