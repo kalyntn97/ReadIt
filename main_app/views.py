@@ -1,8 +1,9 @@
 import requests
-from django.shortcuts import render
-from django.http import HttpResponse
+from django import forms
+from django.shortcuts import render, redirect
 from django.db.models.functions import Now
 from .models import Note
+# from .forms import NoteForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.views import LoginView
@@ -19,15 +20,27 @@ class NoteList(LoginRequiredMixin, ListView):
   model = Note
 
   def get_queryset(self):
-      return Note.objects.filter(user=self.request.user, expire_on__gt=Now()).order_by('-created_at')
+    queryset_not_expired = Note.objects.filter(expire_on__gt=Now()) | Note.objects.filter(expire_on__isnull=True)
+    return queryset_not_expired.filter(user=self.request.user).order_by('-created_at')
+  
 class NoteCreate(LoginRequiredMixin, CreateView):
   model = Note
   fields = ['title', 'content', 'expire_on']
   success_url = '/notes/'
 
+  def get_form(self, form_class=None):
+    if form_class is None:
+        form_class = self.get_form_class()
+
+    form = super(NoteCreate, self).get_form(form_class)
+    form.fields['title'].widget = forms.Textarea(attrs={'placeholder': 'Enter title'})
+    form.fields['content'].widget = forms.Textarea(attrs={'placeholder': 'Enter content'})
+    form.fields['expire_on'].widget = forms.DateInput(attrs={'placeholder': 'Enter expiration date (optional)'})
+    return form
+
   def form_valid(self, form):
-      form.instance.user = self.request.user
-      return super().form_valid(form)
+    form.instance.user = self.request.user
+    return super().form_valid(form)
 
 class NoteDetail(DetailView):
   model = Note
@@ -46,6 +59,17 @@ class Home(LoginView):
 # Create your views here.
 def about(request):
   return render(request, 'about.html')
+
+#save - doesn't work with gTTS
+# def note_create(request):
+#   if request.method == 'POST':
+#     note = Note(user = request.user)
+#     form = NoteForm(request.POST, instance=note)
+#     if form.is_valid():
+#       note.save()
+#       return redirect('note-index')
+#   form = NoteForm()
+#   return render(request, 'note_create.html', {'form': form})
 
 def signup(request):
   error_message = ''

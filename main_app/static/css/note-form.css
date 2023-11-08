@@ -71,7 +71,7 @@ table td {
   margin-left: 1em;
 }
 
-table input, table textarea {
+table textarea, input {
   width: 90%;
   height: fit-content;
   line-height: 30px;
@@ -85,6 +85,7 @@ table input, table textarea {
 }
 
 #id_title {
+  height: 60px;
   line-height: 60px;
   font-size: 1.5em;
 }
@@ -94,4 +95,6 @@ table input, table textarea {
   margin-bottom: 0.6em;
 }
 
-
+#id_expire_on {
+  font-size: 0.8em;
+}
