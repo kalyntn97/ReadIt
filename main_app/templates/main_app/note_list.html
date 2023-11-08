@@ -12,20 +12,24 @@
 <div class='container'>
   {% for note in note_list %}
     <a href="{% url "note-detail" note.id %}">
-      <div class='card'>
-        <div class'card-header'>
-          <h2>{{ note.title }}</h2>
-          <div class='date-container'>
-            <span class='create'>{{ note.created_at }}</span>
-            {% if note.expire_on %}
-              <span class='expire'>{{ note.expire_on }}</span>
-            {% endif %}
+      <div class='notebook-wrapper'>
+        <div class='notebook'>
+          <div class='notebook-cover'>
+            <div class='notebook-skin'>
+              <h2>{{ note.title }}</h2>
+              <div class='date-container'>
+                <span class='create'>Created: {{ note.created_at }}</span>
+                {% if note.expire_on %}
+                <span class='expire'>Expires: {{ note.expire_on }}</span>
+                {% endif %}
+              </div>
+            </div>
           </div>
-        </div>
-        <div class='card-summary'>
+          <div class='notebook-page'></div>
         </div>
       </div>
     </a>
+
     {% endfor %}
 </div>
 

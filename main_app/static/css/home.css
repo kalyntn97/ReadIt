@@ -1,0 +1,71 @@
+body {
+  background-color: #FFC700;
+  overflow: hidden;
+}
+.background {
+  -webkit-clip-path: polygon(0 0, 51% 0, 100% 100%, 45% 100%);
+  clip-path: polygon(0 0, 51% 0, 100% 100%, 45% 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: white;
+  z-index: -1;
+}
+
+header {
+  display: block;
+  float: left;
+  position: absolute;
+  width: 12em;
+  height: 100vh;
+  padding: 2em 0;
+}
+
+nav {
+  display: block;
+  float: left;
+}
+
+nav a {
+  width: 100%;
+  line-height: 4em;
+  text-wrap: nowrap;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.name-container {
+  margin-left: 12em;
+  width: 45%;
+  height: 50%;
+  text-align: center;
+}
+.name-container h1 {
+  font-size: 8em;
+}
+.name-container h3 {
+  font-size: 2em;
+}
+
+.login-form {
+  width: 25em;
+  height: 35em;
+  background-color: #00A28B;
+  -webkit-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+  -moz-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+  -ms-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+  -o-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+  box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
+}
+
+h1 {
+  margin: 0;
+}
+

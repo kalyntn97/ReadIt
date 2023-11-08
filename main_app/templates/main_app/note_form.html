@@ -10,16 +10,16 @@
 {% endblock head %}
 
 {% block content %}
-{% if note %}
-<h1>Edit a Note</h1>
-{% else %}
-<h1>Add a Note</h1>
-{% endif %}
-<form action="" method="post">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type='submit'>Submit</button>
-</form>
+  {% if note %}
+  <h1>Edit a Note</h1>
+  {% else %}
+  <h1>Add a Note</h1>
+  {% endif %}
+  <form action="" method="post" class='add-note-form'>
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <button type='submit'>Submit</button>
+  </form>
 {% endblock content %}

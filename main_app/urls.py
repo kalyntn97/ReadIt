@@ -9,5 +9,5 @@ urlpatterns = [
   path('notes/<int:pk>/', views.NoteDetail.as_view(), name='note-detail'),
   path('notes/create/', views.NoteCreate.as_view(), name='note-create'),
   path('notes/<int:pk>/update', views.NoteUpdate.as_view(), name='note-update'),
-  path('notes/<int:pk>/delete', views.NoteDelete.as_view(), name='note-delete')
+  path('notes/<int:pk>/delete', views.NoteDelete.as_view(), name='note-delete'),
 ]

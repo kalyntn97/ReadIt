@@ -9,17 +9,28 @@
 {% block content %}
 <div class='header'>
   <h1>{{ note.title }}</h1>
-  <span class='create'>{{ note.created_at }}</span>
   {% if note.expire_on %}
-    <span class='expire'>{{ note.expire_on }}</span>
+    <span class='expire'>Expires on: {{ note.expire_on }}</span>
   {% endif %}
 </div>
 <div class='content'>
-  <div class='btn-container'>
-    <a href="{% url "note-update" note.id %}" class='edit-btn'>Edit</a>
-    <a href="{% url "note-delete" note.id %}" class='delete-btn'>Delete</a>
+  <div class='content-header'>
+    <audio src="{% say 'en-us' 'hello' %}" controls></audio>
+    <div class='btn-container'>
+      <button><a href="{% url "note-update" note.id %}" class='edit-btn'>Edit</a></button>
+      <button><a href="{% url "note-delete" note.id %}" class='delete-btn'>Delete</a></button>
+    </div>
   </div>
-  <audio src="{% say 'en-us' note.content %}" controls></audio>
-  <p>{{ note.content }}</p>
+  <div class='note-page'>
+    <div class='heading'>
+      <p>Date: {{ note.created_at }}</p>
+    </div>
+    <div class='note-content'>
+      <h1>{{ note.title }}</h1>
+      <p>{{ note.content }}</p>
+    </div>
+  </div>
 </div>
+
+
 {% endblock content %}

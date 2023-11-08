@@ -1,19 +1,26 @@
-{% extends "base.html" %}
 {% load static %}
+{% extends "base.html" %}
 
 {% block head %}
+<link rel="stylesheet" type='text/css' href="{% static "css/form.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
 {% endblock head %}
 
 {% block content %}
-<h1>Home</h1>
+<div class='background'></div>
+<div class='name-container'>
+  <h1>ReadIt</h1>
+  <h3>Echo thoughts, one note at a time</h3>
+</div>
 {% if not user.is_authenticated %}
-  <form action="" method="post">
-    <h1>Login</h1>
+  <form action="" method="post" class='login-form'>
+    <h1>Log In</h1>
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class='submit-btn'>Login</button>
+    <table>
+      {{ form.as_p }}
+    </table>
+      <input type="hidden" name="next" value="{{ next }}">
+      <button type="submit" class='submit-btn'>Login</button>
   </form>
 {% endif %}
 {% endblock content %}
