@@ -20,7 +20,11 @@ class NoteList(LoginRequiredMixin, ListView):
   model = Note
 
   def get_queryset(self):
+    #delete expired notes
+    Note.objects.filter(expire_on__lt=Now()).delete()
+    #get notes that are not expired or do not have exp. date
     queryset_not_expired = Note.objects.filter(expire_on__gt=Now()) | Note.objects.filter(expire_on__isnull=True)
+    #only show user's notes
     return queryset_not_expired.filter(user=self.request.user).order_by('-created_at')
   
 class NoteCreate(LoginRequiredMixin, CreateView):
