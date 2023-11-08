@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static "css/mcdp.css" %}">
 <script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
 </script>
-<link rel="stylesheet" href="{% static "css/form.css" %}">
+<link rel="stylesheet" href="{% static "css/note-form.css" %}">
 <script defer src="{% static "js/form.js" %}"></script>
 {% endblock head %}
 
@@ -17,6 +17,7 @@
   {% endif %}
   <form action="" method="post" class='add-note-form'>
     {% csrf_token %}
+    <div class='heading'></div>
     <table>
       {{ form.as_table }}
     </table>
