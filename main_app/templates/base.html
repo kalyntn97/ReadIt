@@ -30,7 +30,7 @@
           <a href="{% url "note-create" %}" class='link hover'>Add a Note</a>
           <a href="{% url "logout" %}" class='link hover'>Log Out</a>
       {% else %}
-          <a href="{% url "home" %}" class='link hover'>Home</a>
+          <a href="{% url "home" %}" class='link favicon'><img src="{% static "images/favicon.png" %}" alt="a favicon"></a>
           <a class='link hover login'><span id='login-btn'>Login</span></a>
           <a href="{% url "signup" %}" class='link hover'>Sign Up</a>
           <a href="{% url "about" %}" class='link hover'>About</a>
