@@ -23,13 +23,29 @@ class NoteList(LoginRequiredMixin, ListView):
   model = Note
 
   def get_queryset(self):
-    #save - delete expired notes, doesn't work with gTTS yet
-    Note.objects.filter(expire_on__lt=Now()).delete()
+    # Find expired notes
+    notes_to_be_deleted = Note.objects.filter(expire_on__lt=Now())
+    # Loop through expired notes to delete audio files
+    for note in notes_to_be_deleted:
+      audio_file_name = f'{note.pk}.mp3'
+      static_folder_path = os.path.join(settings.BASE_DIR, 'main_app', 'static')
+      audio_folder_path = os.path.join(static_folder_path, 'audio')
+      os.makedirs(audio_folder_path, exist_ok=True)
+      audio_file_path = os.path.join(audio_folder_path, audio_file_name)
+      # Find the existing file and delete it
+      if os.path.exists(audio_file_path):
+        os.remove(audio_file_path)
+    # Delete expired notes
+    notes_to_be_deleted.delete()
+
     #get notes that are not expired or do not have exp. date
     queryset_not_expired = Note.objects.filter(expire_on__gt=Now()) | Note.objects.filter(expire_on__isnull=True)
+    
     #only show user's notes
     return queryset_not_expired.filter(user=self.request.user).order_by('-created_at')
   
+
+
 class NoteCreate(LoginRequiredMixin, CreateView):
   model = Note
   fields = ['title', 'content', 'expire_on']
@@ -130,7 +146,7 @@ class NoteDelete(LoginRequiredMixin, DeleteView):
     #Find the existing file and delete it
     if os.path.exists(audio_file_path):
       os.remove(audio_file_path)
-      
+
     return super().form_valid(form)
   
 
