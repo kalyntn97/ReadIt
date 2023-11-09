@@ -120,6 +120,20 @@ class NoteDelete(LoginRequiredMixin, DeleteView):
   model = Note
   success_url = '/notes/'
 
+  def form_valid(self, form):
+    audio_file_name = f'{self.object.pk}.mp3'
+    static_folder_path = os.path.join(settings.BASE_DIR, 'main_app', 'static')
+    audio_folder_path = os.path.join(static_folder_path, 'audio')
+    os.makedirs(audio_folder_path, exist_ok=True)
+    audio_file_path = os.path.join(audio_folder_path, audio_file_name)
+
+    #Find the existing file and delete it
+    if os.path.exists(audio_file_path):
+      os.remove(audio_file_path)
+      
+    return super().form_valid(form)
+  
+
 class Home(LoginView):
   template_name = 'home.html'
 
