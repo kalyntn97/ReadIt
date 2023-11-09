@@ -2,8 +2,8 @@
 ### Description :
 Welcome to ReadIt, where the art of note-taking meets the ease of organization, creating a symphony of productivity for your daily life. Our app is designed with simplicity and versatility in mind, offering a seamless platform to capture and organize your thoughts effortlessly.
 
-## [Try ReadIt here]('https://readit.fly.dev/')
-## [Planning Material]('https://trello.com/b/d2BMfOBF/readit')
+## [Try ReadIt here](https://readit.fly.dev/)
+## [Planning Material](https://trello.com/b/d2BMfOBF/readit)
 
 ### Features:
 -  Effortless Navigation:
