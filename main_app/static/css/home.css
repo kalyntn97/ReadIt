@@ -33,11 +33,6 @@ nav a {
   text-wrap: nowrap;
 }
 
-.hover::after {
-  bottom: 1.5em;
-}
-
-
 main {
   display: flex;
   flex-direction: row;

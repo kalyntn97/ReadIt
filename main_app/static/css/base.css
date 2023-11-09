@@ -79,7 +79,7 @@ nav {
 }
 
 .link {
-  padding: 0.5em 1em;
+  padding: 1em 1em;
   font-size: 1.5em;
   width: fit-content;
   text-decoration: none;
@@ -87,12 +87,13 @@ nav {
   font-family: 'Space Mono', monospace;
   display: inline-block;
   position: relative;
+  line-height: 2em;
 }
 
 .hover::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 1em;
   left: 0;
   width: 100%;
   height: 3px;
@@ -191,4 +192,19 @@ button, form, img {
 
 .hide {
   display: none;
+}
+
+
+.link.favicon img {
+  width: 3em;
+  height: 3em;
+  box-shadow: none;
+  margin: 0;
+  padding: 0.4em;
+}
+
+.link.favicon {
+  margin: 0;
+  padding: 0;
+  height: 4em;
 }

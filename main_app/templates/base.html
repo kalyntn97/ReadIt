@@ -24,7 +24,7 @@
   <header>
     <nav>
       {% if user.is_authenticated %}
-          <a href="{% url "home" %}" class='link hover'> Home</a>
+          <a href="{% url "home" %}" class='link favicon'><img src="{% static "images/favicon.png" %}" alt="a favicon"></a>
           <a href="{% url "about" %}" class='link hover'>About</a>
           <a href="{% url "note-index" %}" class='link hover'>All Notes</a>
           <a href="{% url "note-create" %}" class='link hover'>Add a Note</a>
