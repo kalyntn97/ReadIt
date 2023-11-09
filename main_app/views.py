@@ -66,7 +66,7 @@ class Home(LoginView):
 
     form = super(Home, self).get_form(form_class)
     form.fields['username'].widget = forms.TextInput(attrs={'placeholder': 'Your username'})
-    form.fields['password'].widget = forms.TextInput(attrs={'placeholder': 'Your password'})
+    form.fields['password'].widget = forms.PasswordInput(attrs={'placeholder': 'Your password'})
     return form
 
 # Create your views here.
