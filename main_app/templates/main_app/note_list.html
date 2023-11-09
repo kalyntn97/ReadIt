@@ -13,27 +13,30 @@
   <h1>All Notes</h1>
 </div>
 <div class='container'>
-  {% for note in note_list %}
-    <a href="{% url "note-detail" note.id %}">
-      <div class='notebook-wrapper'>
-        <div class='notebook'>
-          <div class='notebook-cover'>
-            <div class='notebook-skin'>
-              <h2>{{ note.title }}</h2>
-              <div class='date-container'>
-                <span class='create'>Created: {{ note.created_at }}</span>
-                {% if note.expire_on %}
-                <span class='expire'>Expires: {{ note.expire_on }}</span>
-                {% endif %}
+  {% if note_list.count %}
+    {% for note in note_list %}
+      <a href="{% url "note-detail" note.id %}">
+        <div class='notebook-wrapper'>
+          <div class='notebook'>
+            <div class='notebook-cover'>
+              <div class='notebook-skin'>
+                <h2>{{ note.title }}</h2>
+                <div class='date-container'>
+                  <span class='create'>Created: {{ note.created_at }}</span>
+                  {% if note.expire_on %}
+                  <span class='expire'>Expires: {{ note.expire_on }}</span>
+                  {% endif %}
+                </div>
               </div>
             </div>
+            <div class='notebook-page'></div>
           </div>
-          <div class='notebook-page'></div>
         </div>
-      </div>
-    </a>
-
+      </a>
     {% endfor %}
+  {% else %}
+    <h3 class='no-notes'>You don't have any notes.</h3>
+  {% endif %}
 </div>
 
 {% endblock content %}

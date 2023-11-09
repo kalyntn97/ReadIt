@@ -25,6 +25,9 @@
     <table>
       {{ form.as_table }}
     </table>
+    {% if note %}
+      <a href="{% url "note-detail" note.id %} " class='cancel link hover'>Cancel</a>
+    {% endif %}
     <button type='submit' class='submit btn'>Submit</button>
   </form>
 </div>

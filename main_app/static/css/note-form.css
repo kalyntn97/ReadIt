@@ -152,3 +152,8 @@ table textarea, input {
   transform: translateX(-50%);
 }
 
+.cancel {
+  position: absolute;
+  left: 70%;
+  transform: translate(-70%);
+}
