@@ -113,3 +113,12 @@ button {
   -o-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
   box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
 }
+
+.no-style-btn {
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0.5em 1em;
+}

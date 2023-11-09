@@ -11,6 +11,39 @@ main > h1 {
   flex-wrap: wrap;
 }
 
+.banner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/static/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  width: 100%;
+  height: 35vh;
+  position: relative;
+  color: black;
+}
+
+.title h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  width: 18em;
+  height: 2.5em;
+  line-height: 2.5em;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  /* border: 1px solid black; */
+  font-size: 4em;
+  backdrop-filter: grayscale(80%);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .notebook-wrapper {
   max-width: calc(100% / 4);
   min-width: 20em;

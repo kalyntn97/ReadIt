@@ -3,22 +3,26 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/form.css" %}">
+<link rel="stylesheet" type='text/css' href="{% static "css/signup.css" %}">
 {% endblock head %}
 
 {% block content %}
-<div class='header'>
-  <h1>Sign Up</h1>
-</div>
-<div class='content'>
-  {% if error_message %}
-    <p>{{ error_message }}</p>
-  {% endif %}
-  <form action="" method="post">
+<form action="" method="post" class='signup-form'>
+  <div class='img-container'>
+    <img src="{% static "images/book.jpg" %}" alt="a book">
+  </div>
+  <div class='content'>
+    <div class='header'>
+      <h1>Sign Up</h1>
+    </div>
+    {% if error_message %}
+      <p>{{ error_message }}</p>
+    {% endif %}
     {% csrf_token %}
     <table>
       {{ form.as_table }}
     </table>
     <button type="submit" class='submit-btn'>Submit</button>
-  </form>
-</div>
+  </div>
+</form>
 {% endblock content %}

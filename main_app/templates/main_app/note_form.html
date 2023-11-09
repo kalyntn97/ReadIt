@@ -10,11 +10,15 @@
 {% endblock head %}
 
 {% block content %}
+<div class='img-container'>
+  <img src="{% static "images/writing.jpg" %}" alt="a person writing" class='writing-img'>
   {% if note %}
   <h1>Edit a Note</h1>
   {% else %}
   <h1>Add a Note</h1>
   {% endif %}
+</div>
+<div class='note-page'>
   <form action="" method="post" class='add-note-form'>
     {% csrf_token %}
     <div class='heading'></div>
@@ -23,4 +27,5 @@
     </table>
     <button type='submit'>Submit</button>
   </form>
+</div>
 {% endblock content %}

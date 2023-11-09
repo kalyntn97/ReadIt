@@ -7,7 +7,25 @@
 {% endblock head %}
 
 {% block content %}
-<h1>About ReadIt</h1>
-<p>ReadIt is a note app that reads it for you!</p>
+<div class='text-container'>
+  <h1>About </h1>
+  <p>Welcome to ReadIt, where the art of note-taking meets the ease of organization, creating a symphony of productivity for your daily life.</p>
+  <p>Our app is designed with simplicity and versatility in mind, offering a seamless platform to capture and organize your thoughts effortlessly.</p>
+</div>
+<div class='img-container'>
+  <img src="{% static "images/notebook-coffee.jpg" %}" alt="notebook and coffee">
+</div>
+<div class='author-info'>
+  <img src="{% static "images/author-photo.jpeg" %}" alt="author photo" class='avatar'>
+  <div class='greeting'>
+    <p>Hi, I'm Tran. Pretty notes are some of my most favorite things so I really hope you enjoy the app!</p>
+    <p>Connect with me.</p>
+  </div>
+  <div class='link-container'>
+    <a href="https://github.com/kalyntn97" target='_blank'><img src="{% static "images/github-logo.png" %}" alt="a GitHub logo"></a>
+    <a href="https://www.linkedin.com/in/tran-huynh-nguyen/" target='_blank'><img src="{% static "images/linkedin-logo.svg" %}" alt="a LinkedIn logo"></a>
+    <a href="https://mail.google.com/mail/?view=cm&source=mailto&to=[tranhnnguyen13@gmail.com]" target='_blank'><img src="{% static "images/mail-logo.svg" %}" alt="a mail logo"></a>
+  </div>
+</div>
 
 {% endblock content %}

@@ -7,20 +7,42 @@
 {% endblock head %}
 
 {% block content %}
-<div class='background'></div>
+{% comment %} <div class='background'></div> {% endcomment %}
+<img src="{% static "images/postcard.jpg" %}" alt="a postcard background" class='postcard-img'>
 <div class='name-container'>
   <h1>ReadIt</h1>
   <h3>Echo thoughts, one note at a time</h3>
 </div>
 {% if not user.is_authenticated %}
-  <form action="" method="post" class='login-form'>
-    <h1>Log In</h1>
-    {% csrf_token %}
-    <table>
-      {{ form.as_p }}
-    </table>
+<div id='modal-root'>
+  <form action="{% url "home" %}" method="post" class='login-form'>
+    <span id='close-btn'>Close</span>
+    <div class='sender absolute'>
+      <h3><span class='pc-label'>From: </span>ReadIt</h3>
+    </div>
+    <div class='message absolute'>
+      <h3>Welcome back to ReadIt!</h3>
+      <p>Don't have an account yet with us?</p>
+      <a class='signup-link'>Sign up here</a>
+    </div>
+    <div class='user absolute'>
+      <span class='pc-label'>To: </span>
+      {% comment %} <h1>Log In</h1> {% endcomment %}
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
       <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class='submit-btn'>Login</button>
-  </form>
+      <button type="submit" class='submit-btn'>Log In</button>
+    </div>
+    </form>
+  {% comment %} Signup form in the same page - test {% endcomment %}
+  {% comment %} <form action="{% url "home" %}" method="post" class='signup-form'>
+    <h1>Sign Up</h1>
+    {% csrf_token %}
+    {{ form_signup.as_p }}
+    <button type="submit" name='signup' class='submit-btn'>Sign Up</button>
+  </form>  {% endcomment %}
+</div>
 {% endif %}
 {% endblock content %}

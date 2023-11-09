@@ -4,7 +4,6 @@ main {
 }
 
 form {
-  background-color: #C2FCF3;
   width: 50%;
   height: 60%;
   display: flex;
@@ -42,12 +41,4 @@ form label {
   text-align: center;
   font-size: 1.5em;
   margin: 0.5em;
-}
-
-.add-note-form input, .add-note-form textarea {
-  border-radius: 8px;
-}
-
-.add-note-form th {
-  vertical-align: middle;
 }

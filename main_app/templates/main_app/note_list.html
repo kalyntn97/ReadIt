@@ -8,7 +8,10 @@
 {% endblock head %}
 
 {% block content %}
-<h1>All Notes</h1>
+<div class=title>
+  <div class='banner'></div>
+  <h1>All Notes</h1>
+</div>
 <div class='container'>
   {% for note in note_list %}
     <a href="{% url "note-detail" note.id %}">
