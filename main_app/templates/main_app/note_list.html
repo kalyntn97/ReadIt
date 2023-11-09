@@ -14,7 +14,7 @@
 </div>
 <div class='container'>
   {% for note in note_list %}
-    <a href="{% url "note-detail" note.id %}">
+    <a href="{% url "note-detail" note.id %}"class='show-loading-after-click'>
       <div class='notebook-wrapper'>
         <div class='notebook'>
           <div class='notebook-cover'>

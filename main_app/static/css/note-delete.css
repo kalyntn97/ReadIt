@@ -1,0 +1,36 @@
+main {
+  height: calc(100vh - 7vh);
+  width: 100%;
+}
+
+.img-container {
+  height: 70%;
+  width: 40%;
+  background-image: url('/static/images/question.jpg');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+form {
+  width: 50%;
+  height: 50%;
+  backdrop-filter: blur(5px);
+  /* background-color: rgba(0, 0, 0, 0.467); */
+}
+
+.cancel-btn {
+  margin: 1em 0;
+  font-size: 2em;
+}
+
+.delete-btn {
+  width: 8em;
+  font-size: 2em;
+}
+
+.delete-btn:hover {
+  background: var(--yellow);
+}

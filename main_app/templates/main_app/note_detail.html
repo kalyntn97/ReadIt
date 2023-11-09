@@ -17,8 +17,8 @@
   <div class='content-header'>
     <audio src="{% say 'en-us' note.content %}" controls></audio>
     <div class='btn-container'>
-      <button><a href="{% url "note-update" note.id %}" class='edit-btn'>Edit</a></button>
-      <button><a href="{% url "note-delete" note.id %}" class='delete-btn'>Delete</a></button>
+      <button class='edit-btn'><a href="{% url "note-update" note.id %}">Edit</a></button>
+      <button class='delete-btn'><a href="{% url "note-delete" note.id %}">Delete</a></button>
     </div>
   </div>
   <div class='note-page'>

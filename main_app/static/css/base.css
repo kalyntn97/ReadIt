@@ -138,13 +138,6 @@ h1 {
   margin: 1em;
 }
 
-button {
-  font-family: 'Karla', sans-serif;
-  margin: 1em;
-  padding: 1em 2em;
-  border-radius: 8px;
-}
-
 .no-style-btn {
   border: none;
   background: none;
@@ -171,7 +164,8 @@ button, form, img {
   box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
 }
 
-.submit-btn {
+button {
+  font-family: 'Karla', sans-serif;
   border: none;
   width: 7em;
   font-size: 1em;
@@ -181,12 +175,12 @@ button, form, img {
   box-shadow: 0 0.4rem #dfd9d9;
 }
 
-.submit-btn:active {
+button:active {
   color: white;
   box-shadow: 0 0.2em #dfd9d9;
 }
  
-.submit-btn:hover {
+button:hover {
   background: rgb(75, 75, 75);
   color: white;
   text-shadow: 0 0.1rem #bcb4b4;

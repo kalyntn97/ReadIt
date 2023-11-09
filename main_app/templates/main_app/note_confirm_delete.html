@@ -2,17 +2,16 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static "css/form.css" %}">
+<link rel="stylesheet" type='text/css' href="{% static "css/note-delete.css" %}">
 {% endblock head %}
 
 {% block content %}
-<div class='header'>
-  <h1>Delete Note?</h1>
-</div>
-<div class='content'>
+<h1>Delete Note?</h1>
+<div class='img-container'>
   <form action="" method="post">
     {% csrf_token %}
-    <a href="{% url "note-detail" note.id %} " class='cancel-btn'>Cancel</a>
-    <button type='submit'>Delete</button>
+    <a href="{% url "note-detail" note.id %} " class='cancel-btn link hover'>Cancel</a>
+    <button type='submit' class='delete-btn'>Delete</button>
   </form>
 </div>
 {% endblock content %}
