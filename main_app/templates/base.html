@@ -24,16 +24,16 @@
   <header>
     <nav>
       {% if user.is_authenticated %}
-      <a href="{% url "home" %}">Home</a>
-      <a href="{% url "about" %}">About</a>
-      <a href="{% url "note-index" %}">All Notes</a>
-      <a href="{% url "note-create" %}">Add a Note</a>
-      <a href="{% url "logout" %}">Log Out</a>
+          <a href="{% url "home" %}" class='link hover'> Home</a>
+          <a href="{% url "about" %}" class='link hover'>About</a>
+          <a href="{% url "note-index" %}" class='link hover'>All Notes</a>
+          <a href="{% url "note-create" %}" class='link hover'>Add a Note</a>
+          <a href="{% url "logout" %}" class='link hover'>Log Out</a>
       {% else %}
-      <a href="{% url "home" %}">Home</a>
-      <button class='no-style-btn' id='login-btn'>Login</button>
-      <a href="{% url "signup" %}">Sign Up</a>
-      <a href="{% url "about" %}">About</a>
+          <a href="{% url "home" %}" class='link hover'>Home</a>
+          <a class='link hover login'><span id='login-btn'>Login</span></a>
+          <a href="{% url "signup" %}" class='link hover'>Sign Up</a>
+          <a href="{% url "about" %}" class='link hover'>About</a>
       {% endif %}
     </nav>
   </header>

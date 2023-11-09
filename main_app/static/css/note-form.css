@@ -14,7 +14,7 @@ main {
 }
 
 .img-container h1 {
-  margin : 1em;
+  margin : 0.5em;
   width: 30%;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
@@ -146,3 +146,26 @@ table textarea, input {
   font-size: 0.8em;
 }
 
+.submit-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7em;
+  font-size: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: var(--white);
+  box-shadow: 0 0.4rem #dfd9d9;
+}
+
+.submit-btn:active {
+  color: white;
+  box-shadow: 0 0.2em #dfd9d9;
+}
+ 
+.submit-btn:hover {
+  background: rgb(75, 75, 75);
+  color: white;
+  text-shadow: 0 0.1rem #bcb4b4;
+  transition: all 0.2s ease-in-out;
+}

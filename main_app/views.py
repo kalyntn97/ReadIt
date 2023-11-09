@@ -11,7 +11,6 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-# from gtts import gTTS
 # from django.core.files.storage import default_storage
 # from django.core.files.base import ContentFile
 # from django.conf import settings
@@ -22,7 +21,7 @@ class NoteList(LoginRequiredMixin, ListView):
 
   def get_queryset(self):
     #save - delete expired notes, doesn't work with gTTS yet
-    # Note.objects.filter(expire_on__lt=Now()).delete()
+    Note.objects.filter(expire_on__lt=Now()).delete()
     #get notes that are not expired or do not have exp. date
     queryset_not_expired = Note.objects.filter(expire_on__gt=Now()) | Note.objects.filter(expire_on__isnull=True)
     #only show user's notes
@@ -74,6 +73,7 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
+#save - login and signup in same view
 # def home(request):
 #   error_message_signin = ''
 #   error_message_signup = ''
@@ -107,17 +107,6 @@ def about(request):
 #   context = {'form_signin': form_signin, 'form_signup': form_signup, 'error_message_signin': error_message_signin, 'error_message_signup': error_message_signup}
 #   return render(request, 'home.html', context)
 
-#save - doesn't work with gTTS
-# def note_create(request):
-#   if request.method == 'POST':
-#     note = Note(user = request.user)
-#     form = NoteForm(request.POST, instance=note)
-#     if form.is_valid():
-#       note.save()
-#       return redirect('note-index')
-#   form = NoteForm()
-#   return render(request, 'note_create.html', {'form': form})
-
 def signup(request):
   error_message = ''
   if request.method == 'POST':
@@ -130,6 +119,7 @@ def signup(request):
       error_message = 'Invalid Signup - Try again'
   form = UserCreationForm()
   context = { 'form': form, 'error-message': error_message }
+
   return render(request, 'signup.html', context)
 
 #save for future storage options
@@ -150,6 +140,5 @@ def signup(request):
 #     'note': note,
 #     'audio_file_url': default_storage.url(f'audio/{audio_file_name}')
 #   }
-
   # return render(request, 'note_detail.html', {'note': note})
 

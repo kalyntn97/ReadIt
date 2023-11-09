@@ -76,12 +76,12 @@ main {
   left: 50%;
   transform: translateX(-50%);
 }
+
 .greeting p {
   margin: 1em;
   font-size: 1em;
   font-family: 'Handlee', cursive;
 }
-
 
 .link-container {
   position: absolute;
@@ -92,4 +92,12 @@ main {
 
 .link-container a {
   margin: 1em;
+}
+
+.link-container a img {
+  box-shadow: none;
+}
+
+.link-container a:hover img {
+  transform: translateY(-0.5em) scaleX(1.1);
 }

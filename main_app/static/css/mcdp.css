@@ -1,17 +1,21 @@
 .mc-display__day {
-  font-size:clamp(1.6rem, 8vw, 2rem);
+  font-size:clamp(1rem, 5vw, 1.5rem);
+  background-color: var(--yellow);
 }
 
 .mc-display__date {
-  font-size:clamp(8rem, 40vw, 11.2rem);
+  font-size:clamp(5rem, 30vw, 7rem);
+  background-color: var(--yellow);
 }
 
 .mc-display__month {
-  font-size: clamp(1.9rem, 9vw, 2.4rem);
+  font-size: clamp(1rem, 5vw, 2rem);
+  background-color: var(--yellow);
 }
 
 .mc-display__year {
-  font-size: clamp(3.8rem,18vw,4.8rem);
+  font-size: clamp(2rem,10vw,3rem);
+  background-color: var(--yellow);
 }
 
 .mc-select__data--month, .mc-select__data--month span {
@@ -43,4 +47,16 @@
 
 .mc-picker__footer {
   padding: 1.6rem 0;
+}
+
+.mc-display__data--primary, .mc-display__data--secondary, .mc-date--active.mc-date--picked {
+  background-color: var(--yellow);
+}
+
+.mc-table__weekday {
+  color: var(--yellow);
+}
+
+.mc-btn--danger, .mc-btn--success {
+  color: var(--yellow);
 }
