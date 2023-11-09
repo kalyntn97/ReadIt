@@ -46,7 +46,7 @@ main {
 
 .add-note-form {
   width: 80%;
-  min-height: 50vh;
+  min-height: 55vh;
   max-height: fit-content;
   margin: 1em 1em;
   display: block;
@@ -118,6 +118,7 @@ table td {
 }
 
 table textarea, input {
+  font-family: 'Handlee', cursive;
   width: 90%;
   height: fit-content;
   line-height: 30px;

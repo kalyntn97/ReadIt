@@ -17,6 +17,7 @@ main {
   width: auto;
   height: 80%;
   transform: rotate(15deg);
+  z-index: 10;
 }
 
 .text-container {
@@ -32,6 +33,7 @@ main {
 }
 
 .text-container h1 {
+  font-family: 'Satisfy', cursive;
   margin: 1em;
 }
 
@@ -39,6 +41,8 @@ main {
   margin: 1em 2em;
   padding: 1em 2em;
   font-size: 1.5em;
+  font-family: 'Handlee', cursive;
+  line-height: 30px;
 }
 
 .author-info {
@@ -50,6 +54,7 @@ main {
   background-image: url('/static/images/author-card.png');
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .avatar {
@@ -74,12 +79,13 @@ main {
 .greeting p {
   margin: 1em;
   font-size: 1em;
+  font-family: 'Handlee', cursive;
 }
 
 
 .link-container {
   position: absolute;
-  bottom: 5%;
+  bottom: 7%;
   left: 50%;
   transform: translateX(-50%);
 }
