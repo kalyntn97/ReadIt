@@ -1,0 +1,95 @@
+main {
+  width: 100%;
+  height: calc(100vh - 7vh);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.img-container {
+  width: 45%;
+  height: 80%;
+}
+
+.img-container img {
+  width: auto;
+  height: 80%;
+  transform: rotate(15deg);
+  z-index: 10;
+}
+
+.text-container {
+  width: 40%;
+  height: 80%;
+  background-image: url('/static/images/paper.png');
+  background-size: cover;
+  transform: rotate(-5deg);
+}
+
+.text-container h1, p {
+  width: 80%;
+}
+
+.text-container h1 {
+  font-family: 'Satisfy', cursive;
+  margin: 1em;
+}
+
+.text-container p {
+  margin: 1em 2em;
+  padding: 1em 2em;
+  font-size: 1.5em;
+  font-family: 'Handlee', cursive;
+  line-height: 30px;
+}
+
+.author-info {
+  width: 40%;
+  position: absolute;
+  height: 60%;
+  right: 0;
+  bottom: 10%;
+  background-image: url('/static/images/author-card.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.avatar {
+  width: 8em;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.author-info a img {
+  width: 2em;
+}
+
+.greeting {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.greeting p {
+  margin: 1em;
+  font-size: 1em;
+  font-family: 'Handlee', cursive;
+}
+
+
+.link-container {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.link-container a {
+  margin: 1em;
+}
