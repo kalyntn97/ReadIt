@@ -63,7 +63,7 @@ audio::-webkit-media-controls-panel {
   width: 6em;
 }
 
-.delete-btn:hover {
+.delete:hover {
   background: var(--yellow);
 }
 

@@ -21,16 +21,16 @@ form {
   /* background-color: rgba(0, 0, 0, 0.467); */
 }
 
-.cancel-btn {
+.cancel {
   margin: 1em 0;
   font-size: 2em;
 }
 
-.delete-btn {
+.delete {
   width: 8em;
   font-size: 2em;
 }
 
-.delete-btn:hover {
+.delete:hover {
   background: var(--yellow);
 }

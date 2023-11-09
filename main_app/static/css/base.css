@@ -164,7 +164,7 @@ button, form, img {
   box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
 }
 
-button {
+.btn {
   font-family: 'Karla', sans-serif;
   border: none;
   width: 7em;
@@ -175,12 +175,12 @@ button {
   box-shadow: 0 0.4rem #dfd9d9;
 }
 
-button:active {
+.btn:active {
   color: white;
   box-shadow: 0 0.2em #dfd9d9;
 }
  
-button:hover {
+.btn:hover {
   background: rgb(75, 75, 75);
   color: white;
   text-shadow: 0 0.1rem #bcb4b4;
