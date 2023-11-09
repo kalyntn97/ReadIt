@@ -54,8 +54,8 @@ table {
   --color: black;
   --nav-bar-color: #eddfd190;
   --light-green: #C2FCF3;
-  --blue: #2e95aa;
-  --yellow: #fed754;
+  --blue: #617B94;
+  --yellow: #CF8E4F;
 }
 
 body {
@@ -127,6 +127,10 @@ button {
   font-size: 1.5em;
   margin: 0;
   padding: 0 1em;
+}
+
+#login-btn {
+  cursor: pointer;
 }
 
 a {

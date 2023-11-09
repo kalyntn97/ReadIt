@@ -112,6 +112,7 @@ h1 {
   position: absolute;
   top: 2em;
   right: 2em;
+  cursor: pointer;
 }
 
 .absolute {
