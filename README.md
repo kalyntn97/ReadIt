@@ -1,9 +1,9 @@
 # ReadIt
-### Description :
+### Description:
 Welcome to ReadIt, where the art of note-taking meets the ease of organization, creating a symphony of productivity for your daily life. Our app is designed with simplicity and versatility in mind, offering a seamless platform to capture and organize your thoughts effortlessly.
 
-## [Try ReadIt here](https://readit.fly.dev/)
-## [Planning Material](https://trello.com/b/d2BMfOBF/readit)
+## [Try ReadIt here!](https://readit.fly.dev/)
+## [Planning Materials](https://trello.com/b/d2BMfOBF/readit)
 
 ### Features:
 -  Effortless Navigation:
@@ -13,11 +13,11 @@ ReadIt goes beyond the conventional by allowing you to not only jot down your no
 -  Organize with Ease:
 Tired of searching through countless notes? ReadIt gives you an option to set an expiration date to auto-delete your notes. Decluttering you notes has never been easier!
 
-### Screenshots
+### Screenshots:
 ![screenshot1](./main_app/static/images/readit-ss1.png)
 ![Screenshot2](./main_app/static/images/readit-ss2.png)
 
-## Tools and Technologies :
+## Tools and Technologies:
 ![Static Badge](https://img.shields.io/badge/Python3-white?style=for-the-badge&logo=python)
 ![Static Badge](https://img.shields.io/badge/Django-green?style=for-the-badge&logo=django)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=HTML5&logoColor=white)
@@ -37,6 +37,6 @@ Tired of searching through countless notes? ReadIt gives you an option to set an
 
 ## Next Steps:
 - Make the app mobile-responsive.
-- Add create a collection feature
-- More forms to store notes e.g. sticky notes
-- Get data from a web page and generate audio
+- Add create a collection feature.
+- More forms to store notes e.g. sticky notes.
+- Get data from a web page and generate audio.
