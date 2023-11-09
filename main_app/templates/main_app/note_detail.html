@@ -15,7 +15,10 @@
 </div>
 <div class='content'>
   <div class='content-header'>
-    <audio src="{% say 'en-us' note.content %}" controls></audio>
+    <audio controls>
+      <source src=" {% if note.audio %} {{ note.audio }} {% endif %}" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
     <div class='btn-container'>
       <a href="{% url "note-update" note.id %}"><button class='edit btn'>Edit</button></a>
       <a href="{% url "note-delete" note.id %}"><button class='delete btn'>Delete</button></a>

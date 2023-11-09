@@ -1,4 +1,5 @@
 # import requests
+from typing import Any
 from django import forms
 from django.shortcuts import render, redirect
 from django.db.models.functions import Now
@@ -46,6 +47,7 @@ class NoteCreate(LoginRequiredMixin, CreateView):
 
   def form_valid(self, form):
     form.instance.user = self.request.user
+    result = super().form_valid(form)
     note = form.save(commit=False)
     # Combine title and content to convert to audio
     text = note.title + note.content
@@ -55,9 +57,8 @@ class NoteCreate(LoginRequiredMixin, CreateView):
     except Exception as e:
       # Handle the exception, e.g., log the error or raise it
       return self.form_invalid(form)
-
     # Set up file names and paths
-    audio_file_name = f'{note.title}.mp3'
+    audio_file_name = f'{self.object.pk}.mp3'
     static_folder_path = os.path.join(settings.BASE_DIR, 'main_app', 'static')
     audio_folder_path = os.path.join(static_folder_path, 'audio')
     os.makedirs(audio_folder_path, exist_ok=True)
@@ -68,10 +69,10 @@ class NoteCreate(LoginRequiredMixin, CreateView):
     except Exception as e:
       return self.form_invalid(form)
     
-    # Save audio file to default storage
+    # Save audio file path to model
     note.audio = f'/static/audio/{audio_file_name}'
 
-    return super().form_valid(form)
+    return result
   
 class NoteDetail(DetailView):
   model = Note
@@ -79,6 +80,41 @@ class NoteDetail(DetailView):
 class NoteUpdate(LoginRequiredMixin, UpdateView):
   model = Note
   fields = ['title', 'content', 'expire_on']
+
+  def form_valid(self, form):
+    # Get the instance being update
+    note = form.instance
+    # Retrieve old title (audio file)
+    text = note.title + note.content
+    # Perform text-to-speech conversion
+    try:
+      tts = gTTS(text=text, lang='en')
+    except Exception as e:
+      # Handle the exception, e.g., log the error or raise it
+      return self.form_invalid(form)
+    # Set up file names and paths
+    audio_file_name = f'{self.object.pk}.mp3'
+    static_folder_path = os.path.join(settings.BASE_DIR, 'main_app', 'static')
+    audio_folder_path = os.path.join(static_folder_path, 'audio')
+    os.makedirs(audio_folder_path, exist_ok=True)
+    audio_file_path = os.path.join(audio_folder_path, audio_file_name)
+
+    #Find the existing file and delete it
+    
+    if os.path.exists(audio_file_path):
+      os.remove(audio_file_path)
+   
+    # Save the new audio file
+    try:
+        tts.save(audio_file_path)
+    except Exception as e:
+      return self.form_invalid(form)
+    
+    # Save audio file path to model
+    note.audio = f'/static/audio/{audio_file_name}'
+
+    return super().form_valid(form)
+  
 
 class NoteDelete(LoginRequiredMixin, DeleteView):
   model = Note
