@@ -53,3 +53,9 @@ main {
   margin: 2em 0;
 }
 
+#login-btn {
+  display: none;
+}
+a.link.hover.login {
+  display: none;
+}
