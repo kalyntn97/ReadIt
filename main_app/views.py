@@ -11,10 +11,12 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-# from django.core.files.storage import default_storage
-# from django.core.files.base import ContentFile
-# from django.conf import settings
-# import os
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
+import os
+from gtts import gTTS
+from django.templatetags.static import static
 
 class NoteList(LoginRequiredMixin, ListView):
   model = Note
@@ -44,8 +46,33 @@ class NoteCreate(LoginRequiredMixin, CreateView):
 
   def form_valid(self, form):
     form.instance.user = self.request.user
-    return super().form_valid(form)
+    note = form.save(commit=False)
+    # Combine title and content to convert to audio
+    text = note.title + note.content
+    # Perform text-to-speech conversion
+    try:
+      tts = gTTS(text=text, lang='en')
+    except Exception as e:
+      # Handle the exception, e.g., log the error or raise it
+      return self.form_invalid(form)
 
+    # Set up file names and paths
+    audio_file_name = f'{note.title}.mp3'
+    static_folder_path = os.path.join(settings.BASE_DIR, 'main_app', 'static')
+    audio_folder_path = os.path.join(static_folder_path, 'audio')
+    os.makedirs(audio_folder_path, exist_ok=True)
+    audio_file_path = os.path.join(audio_folder_path, audio_file_name)
+    # Save the audio file
+    try:
+        tts.save(audio_file_path)
+    except Exception as e:
+      return self.form_invalid(form)
+    
+    # Save audio file to default storage
+    note.audio = f'/static/audio/{audio_file_name}'
+
+    return super().form_valid(form)
+  
 class NoteDetail(DetailView):
   model = Note
 

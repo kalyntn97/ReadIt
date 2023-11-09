@@ -95,7 +95,10 @@ DATABASES = {
         'PASSWORD': env('NEON_PASSWORD'),
         'HOST': env('NEON_HOST'),
         'PORT': '5432',
-        'OPTIONS': {'sslmode': 'require'}
+        'OPTIONS': {
+            'sslmode': 'require',
+            'options': 'endpoint=ep-green-night-65301458'
+        }
     }
 }
 
@@ -136,7 +139,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, 'main_app', "static")
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'main_app', 'media')
+
+MEDIA_URL = '/media/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

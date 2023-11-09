@@ -10,6 +10,7 @@ class Note(models.Model):
   updated_at = models.DateTimeField(auto_now=True)
   expire_on = models.DateField('Expiry Date', blank=True, null=True, db_index=True)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
+  audio = models.TextField(blank=True, null=True)
 
   def __str__(self):
     return self.title

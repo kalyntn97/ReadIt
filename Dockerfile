@@ -18,6 +18,7 @@ COPY requirements.txt /tmp/requirements.txt
 RUN set -ex && \
     pip install --upgrade pip && \
     pip install Django-Gtts \
+    pip install gTTS \
     pip install -r /tmp/requirements.txt && \
     rm -rf /root/.cache/
 COPY . /code
