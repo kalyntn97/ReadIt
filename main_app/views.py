@@ -86,7 +86,7 @@ class NoteCreate(LoginRequiredMixin, CreateView):
       return self.form_invalid(form)
     
     # Save audio file path to model
-    note.audio = f'/static/audio/{audio_file_name}'
+    note.audio = f'audio/{audio_file_name}'
 
     return result
   
@@ -127,7 +127,7 @@ class NoteUpdate(LoginRequiredMixin, UpdateView):
       return self.form_invalid(form)
     
     # Save audio file path to model
-    note.audio = f'/static/audio/{audio_file_name}'
+    note.audio = f'audio/{audio_file_name}'
 
     return super().form_valid(form)
   

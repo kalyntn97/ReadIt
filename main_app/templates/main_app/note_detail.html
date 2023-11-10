@@ -16,7 +16,7 @@
 <div class='content'>
   <div class='content-header'>
     <audio controls>
-      <source src=" {% if note.audio %} {{ note.audio }} {% endif %}" type="audio/wav">
+      <source src=" {% if note.audio %} {{% static "audio/{{ note.audio }}" %} }} {% endif %}" type="audio/wav">
         Your browser does not support the audio element.
       </audio>
     <div class='btn-container'>
