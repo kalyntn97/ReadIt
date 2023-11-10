@@ -22,7 +22,7 @@
 </head>
 <body>
   <header>
-    <nav>
+    <nav class='nav'>
       {% if user.is_authenticated %}
           <a href="{% url "home" %}" class='link favicon'><img src="{% static "images/favicon.png" %}" alt="a favicon"></a>
           <a href="{% url "about" %}" class='link hover'>About</a>
@@ -36,6 +36,7 @@
           <a href="{% url "about" %}" class='link hover'>About</a>
       {% endif %}
     </nav>
+    <img src="{% static "images/menu.png" %}" alt="a menu icon" class='menu'>
   </header>
   <main>
     {% block content %}

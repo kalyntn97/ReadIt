@@ -21,15 +21,23 @@ main {
 }
 
 .text-container {
-  width: 40%;
-  height: 80%;
+  position: absolute;
+  top: 2%;
+  left: 5%;
+  width: 50%;
+  height: 50%;
   background-image: url('/static/images/paper.png');
   background-size: cover;
   transform: rotate(-5deg);
+  z-index: 10;
+}
+
+.text-container h1 {
+  margin: 1em;
 }
 
 .text-container h1, p {
-  width: 80%;
+  width: 70%;
 }
 
 .text-container h1 {
@@ -38,7 +46,7 @@ main {
 }
 
 .text-container p {
-  margin: 1em 2em;
+  margin: 0 2em;
   padding: 1em 2em;
   font-size: 1.5em;
   font-family: 'Handlee', cursive;
@@ -46,11 +54,11 @@ main {
 }
 
 .author-info {
-  width: 40%;
+  width: 60%;
   position: absolute;
-  height: 60%;
+  height: 40%;
+  top: 30%;
   right: 0;
-  bottom: 10%;
   background-image: url('/static/images/author-card.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -85,7 +93,7 @@ main {
 
 .link-container {
   position: absolute;
-  bottom: 7%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -100,4 +108,112 @@ main {
 
 .link-container a:hover img {
   transform: translateY(-0.5em) scaleX(1.1);
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    overflow: hidden;
+  }
+  .text-container {
+    position: absolute;
+    top: 5%;
+    width: 60%;
+    height: 60%;
+    font-size: 0.8em;
+  }
+
+  .author-info {
+    width: 60%;
+    height: 35%;
+    right: 0;
+    top: 40%;
+    z-index: 10;
+  }
+
+  .avatar {
+    width: 4em;
+  }
+
+  .greeting {
+    font-size: 0.8em;
+    top: 50%;
+  }
+
+  .link-container {
+    width: 40%;
+  }
+  .link-container a img {
+    width: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    height: calc(100vh - 7vh);
+  }
+  .text-container {
+    width: 30%;
+    margin-top: 1em;
+    height: 80%;
+    z-index: 10;
+  }
+  
+  .text-container h1, p {
+    width: 80%;
+  }
+  
+  .text-container h1 {
+    margin: 1em;
+  }
+  
+  .text-container p {
+    margin: 1em 2em;
+    padding: 1em 2em;
+    font-size: 1.5em;
+    line-height: 30px;
+  }
+  
+  .img-container {
+    width: 50em;
+    height: 90%;
+    position: absolute;
+    z-index: 0;
+    left: 40%;
+  }
+
+  .author-info {
+    width: 40%;
+    height: 60%;
+    right: 0;
+    bottom: 10%;
+    z-index: 10;
+  }
+
+  .avatar {
+    top: 30%;
+  }
+  
+  .greeting {
+    top: 60%;
+  }
+  
+  .link-container {
+    bottom: 7%;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .text-container {
+    height: 60%;
+    width: 70%;
+    font-size: 0.6em;
+  }
+  .author-info {
+    top: 55%;
+    font-size: 0.7em;
+  }
+  .link-container {
+    width: 60%;
+    bottom: 10%;
+  }
 }

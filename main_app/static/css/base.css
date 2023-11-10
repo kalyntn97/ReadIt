@@ -76,6 +76,7 @@ header {
 nav {
   display: flex;
   padding: 0 2em;
+  width: 90%;
 }
 
 .link {
@@ -194,7 +195,6 @@ button, form, img {
   display: none;
 }
 
-
 .link.favicon img {
   width: 3em;
   height: 3em;
@@ -209,6 +209,52 @@ button, form, img {
   height: 4em;
 }
 
+.menu {
+  width: 2em;
+  box-shadow: none;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: none;
+}
+
+@media only screen and (max-width: 820px) {
+  .link {
+    font-size: 1.2em;
+  }
+}
+
 @media only screen and (max-width: 390px) {
+  header {
+    position: relative;
+  }
+  .nav.show {
+    position: absolute;
+    top: 7vh;
+    right: 0;
+    flex-direction: column;
+    background-color: #F4EBE1 ;
+    width: 35%;
+    height: fit-content;
+    padding: 0.5em;
+    margin: 0.5em;
+    display: flex;
+    z-index: 100;
+  }
+
+  .nav {
+    display: none;
+  }
  
+  .nav a {
+    padding: 0em;
+  }
+
+  .link {
+    font-size: 1em;
+  }
+
+  .menu {
+    display: block;
+  }
 }

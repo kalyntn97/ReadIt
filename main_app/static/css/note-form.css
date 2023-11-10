@@ -157,3 +157,73 @@ table textarea, input {
   left: 70%;
   transform: translate(-70%);
 }
+
+@media only screen and (max-width: 1200px) {
+  .note-page {
+    width: 80%;
+    z-index: 10;
+    position: relative;
+    margin-left: auto;
+  }
+  .img-container {
+    position: absolute;
+    left: 0;
+  }
+
+  .img-container h1 {
+    position: absolute;
+    z-index: 20;
+    right: 0;
+    background: rgba(255, 255, 255, 0.191);
+    padding: 0.2em;
+    border-radius: 5px;
+    backdrop-filter: sepia(90%);
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  .img-container {
+    position: absolute;
+    width: 90%;
+  }
+
+  .img-container img {
+    position: absolute;
+    height: 50%;
+    top: -17%;
+    right: 0;
+    z-index: 10;
+    transform: rotate(90deg);
+  }
+
+  .note-page {
+    width: 100%;
+    margin-top: 40%;
+    z-index: 20;
+  }
+
+  label, #id_title, #id_content, #id_expire_on {
+    font-size: 0.8em;
+    margin: 0;
+  }
+
+  table th, textarea {
+    padding: 0;
+  }
+
+  .img-container h1 {
+    font-size: 3em;
+    transform: rotate(-90deg) translateX(-30%);
+    top: 7%;
+    left: 40%;
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+    z-index: 30;
+    backdrop-filter: none;
+  }
+}

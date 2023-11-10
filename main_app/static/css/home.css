@@ -195,12 +195,9 @@ h1 {
   width: 8em;
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 768px) {
   header {
     background: #f4ebe19b;
-  }
-  .link {
-    font-size: 1em;
   }
   .name-container h1 {
     font-size: 4em;

@@ -133,3 +133,29 @@ audio::-webkit-media-controls-panel {
   font-size: 1.5em;
   white-space: pre-wrap;
 }
+
+@media only screen and (max-width: 390px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .content-header {
+    display: flex;
+    flex-direction: column;
+  }
+  audio {
+    display: block;
+    width: 50%;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+  }
+  .note-page:before {
+    left: 2em;
+  }
+  .note-page {
+    width: 90%;
+    padding-left: 2.5em;
+  }
+}
