@@ -11,28 +11,6 @@ body {
   z-index: -1;
 }
 
-header {
-  display: block;
-  float: left;
-  position: absolute;
-  width: 14em;
-  height: 100vh;
-  padding: 2em 0;
-  z-index: 10;
-}
-
-nav {
-  display: block;
-  float: left;
-  text-align: right;
-}
-
-nav a {
-  width: 100%;
-  line-height: 4em;
-  text-wrap: nowrap;
-}
-
 main {
   display: flex;
   flex-direction: row;
@@ -42,15 +20,8 @@ main {
   position: relative;
 }
 
-.name-container {
-  width: 45%;
-  height: 50%;
-  text-align: center;
-  position: absolute;
-  left: 10%;
-}
 .name-container h1 {
-  font-size: 8em;
+  font-size: 6em;
   font-family: 'Audiowide', sans-serif;
 }
 .name-container h3 {
@@ -59,8 +30,38 @@ main {
   margin: 1em;
 }
 
+nav {
+  width: 100%;
+  display: flex;
+}
+
 h1 {
   margin: 0;
+}
+
+.postcard-img {
+  position: absolute;
+  width: 60%;
+  height: 70%;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -30%);
+  opacity: 0.9;
+}
+
+.name-container {
+  position: absolute;
+  width: 50%;
+  height: 40%;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.51);
+  backdrop-filter: blur(2px);
 }
 
 #modal-root.visible {
@@ -101,9 +102,8 @@ h1 {
   position: relative;
   /* top: 50%; */
   /* transform: translateY(-50%); */
-  left: 10%;
-  width: 45em;
-  height: 30em;
+  width: 40em;
+  height: 35%;
   background-color: white;
 }
 
@@ -145,8 +145,8 @@ h1 {
   height: 3em;
 }
 .message p {
-  font-size: 1.5em;
-  height: 2em;
+  font-size: 1.3em;
+  height: 1.5em;
 }
 
 .signup {
@@ -195,10 +195,101 @@ h1 {
   width: 8em;
 }
 
-.postcard-img {
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  right: 0;
-  opacity: 0.9;
+@media only screen and (max-width: 390px) {
+  header {
+    background: #f4ebe19b;
+  }
+  .link {
+    font-size: 1em;
+  }
+  .name-container h1 {
+    font-size: 4em;
+  }
+  .name-container h3 {
+    font-size: 1.5em;
+  }
+  .name-container {
+    width: 100%;
+    height: 50%;
+  }
+  .postcard-img {
+    width: 100%;
+    height: 100%;
+  }
+  .login-form {
+    height: 70%;
+  }
+  .user {
+    bottom: 0%;
+    height: 50%;
+  }
+  .sender {
+    top: 1em;
+  }
+  .message h3 {
+    height: 2em;
+  }
+  .signup {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+  main {
+    width: calc(100% - 14em);
+  }
+  header {
+    width: 14em;
+    height: 100vh;
+    z-index: 10;
+  }
+  
+  nav {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  nav a {
+    width: 100%;
+    line-height: 4em;
+    text-wrap: nowrap;
+  }
+
+  .postcard-img {
+    position: relative;
+    height: 100%;
+    width: 50%;
+  }
+  
+  .name-container {
+    position: absolute;
+    width: 45%;
+    height: 50%;
+    left: 25%;
+    background: none;
+  }
+
+  .name-container h1 {
+    font-size: 8em;
+  }
+  .name-container h3 {
+    font-size: 2em;
+    margin: 1em;
+  }
+  .login-form {
+    left: 10%;
+    width: 45em;
+    height: 30em;
+  }
+
+  .message p {
+    font-size: 1.5em;
+    height: 2em;
+  }
 }
